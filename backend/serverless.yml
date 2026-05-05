@@ -1,0 +1,87 @@
+service: cloudwave-events-backend
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-southeast-1
+  environment:
+    MONGO_URI: ${env:MONGO_URI}
+    BUCKET_NAME: ${env:BUCKET_NAME}
+    SES_EMAIL: ${env:SES_EMAIL}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:PutObject
+            - s3:GetObject
+          Resource: "*"
+        - Effect: Allow
+          Action:
+            - ses:SendEmail
+          Resource: "*"
+
+functions:
+  createEvent:
+    handler: src/events/createEvent.handler
+    events:
+      - http:
+          path: events
+          method: post
+          cors: true
+
+  getEvents:
+    handler: src/events/getEvents.handler
+    events:
+      - http:
+          path: events
+          method: get
+          cors: true
+
+  getEventById:
+    handler: src/events/getEventById.handler
+    events:
+      - http:
+          path: events/{id}
+          method: get
+          cors: true
+
+  updateEvent:
+    handler: src/events/updateEvent.handler
+    events:
+      - http:
+          path: events/{id}
+          method: put
+          cors: true
+
+  deleteEvent:
+    handler: src/events/deleteEvent.handler
+    events:
+      - http:
+          path: events/{id}
+          method: delete
+          cors: true
+
+  registerEvent:
+    handler: src/registrations/registerEvent.handler
+    events:
+      - http:
+          path: registrations
+          method: post
+          cors: true
+
+  getPresignedUrl:
+    handler: src/uploads/getPresignedUrl.handler
+    events:
+      - http:
+          path: uploads/presigned-url
+          method: post
+          cors: true
+
+  sendReminders:
+    handler: src/reminders/sendReminders.handler
+    events:
+      - schedule: rate(1 day)
+
+plugins:
+  - serverless-offline
