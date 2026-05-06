@@ -5,9 +5,9 @@ provider:
   runtime: nodejs18.x
   region: ap-southeast-1
   environment:
-    MONGO_URI: ${env:MONGO_URI}
-    BUCKET_NAME: ${env:BUCKET_NAME}
-    SES_EMAIL: ${env:SES_EMAIL}
+    MONGO_URI: "mongodb+srv://cloudwave-user:Prabath%40426@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster"
+    BUCKET_NAME: "cloudwave-uploads-bucket"
+    SES_EMAIL: "prabathbandara100@gmail.com"
   iam:
     role:
       statements:
