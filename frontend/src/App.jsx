@@ -11,7 +11,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 
 // ── Existing pages (keep all your current imports) ────────────────────────────
 import Login from './pages/Login';
-import Events from './pages/Events';
+import EventList from './pages/EventList'
+//import Events from './pages/Events';//
 import EventDetail from './pages/EventDetail';
 import CreateEvent from './pages/CreateEvent';
 
@@ -41,7 +42,7 @@ export default function App() {
         {/* Protected — any logged-in user */}
         <Route
           path="/events"
-          element={<PrivateRoute><Events /></PrivateRoute>}
+          element={<PrivateRoute>Prabath</PrivateRoute>}
         />
         <Route
           path="/events/:id"
