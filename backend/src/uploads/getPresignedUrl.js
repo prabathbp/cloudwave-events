@@ -4,7 +4,17 @@ const { v4: uuidv4 } = require("uuid");
 
 const s3 = new S3Client({ region: "ap-southeast-1" });
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Content-Type,Authorization",
+  "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS"
+};
+
 module.exports.handler = async (event) => {
+  if (event.httpMethod === "OPTIONS") {
+    return { statusCode: 200, headers: corsHeaders, body: "" };
+  }
+
   try {
     const body = JSON.parse(event.body);
     const fileName = `${uuidv4()}-${body.fileName}`;
@@ -17,17 +27,22 @@ module.exports.handler = async (event) => {
 
     const uploadUrl = await getSignedUrl(s3, command, { expiresIn: 300 });
 
+    // Returns CloudFront URL instead of direct S3 URL
+    const CLOUDFRONT_DOMAIN = "https://d2fq3ggoqy2oph.cloudfront.net";
+
     return {
       statusCode: 200,
-      headers: { "Access-Control-Allow-Origin": "*" },
+      headers: corsHeaders,
       body: JSON.stringify({
         uploadUrl,
-        fileUrl: `https://${process.env.BUCKET_NAME}.s3.amazonaws.com/${fileName}`
+        fileUrl: `${CLOUDFRONT_DOMAIN}/${fileName}`
       })
     };
   } catch (error) {
+    console.log("getPresignedUrl error:", error);
     return {
       statusCode: 500,
+      headers: corsHeaders,
       body: JSON.stringify({ error: error.message })
     };
   }

@@ -8,8 +8,9 @@
       "name": "aws",
       "runtime": "nodejs18.x",
       "region": "ap-southeast-1",
+      "timeout": 30,
       "environment": {
-        "MONGO_URI": "mongodb+srv://cloudwave-user:Prabath%40426@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
+        "MONGO_URI": "mongodb+srv://cloudwave-user:CloudWave2024@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
         "BUCKET_NAME": "cloudwave-uploads-bucket",
         "SES_EMAIL": "prabathbandara100@gmail.com"
       },
@@ -109,16 +110,16 @@
               }
             }
           },
-          "CreateEventLogGroup": {
-            "Type": "AWS::Logs::LogGroup",
-            "Properties": {
-              "LogGroupName": "/aws/lambda/cloudwave-events-backend-dev-createEvent"
-            }
-          },
           "GetEventsLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
               "LogGroupName": "/aws/lambda/cloudwave-events-backend-dev-getEvents"
+            }
+          },
+          "CreateEventLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/cloudwave-events-backend-dev-createEvent"
             }
           },
           "GetEventByIdLogGroup": {
@@ -241,38 +242,6 @@
               }
             }
           },
-          "CreateEventLambdaFunction": {
-            "Type": "AWS::Lambda::Function",
-            "Properties": {
-              "Code": {
-                "S3Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1778038397603-2026-05-06T03:33:17.603Z/cloudwave-events-backend.zip"
-              },
-              "Handler": "src/events/createEvent.handler",
-              "Runtime": "nodejs18.x",
-              "FunctionName": "cloudwave-events-backend-dev-createEvent",
-              "MemorySize": 1024,
-              "Timeout": 6,
-              "Environment": {
-                "Variables": {
-                  "MONGO_URI": "mongodb+srv://cloudwave-user:Prabath%40426@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
-                  "BUCKET_NAME": "cloudwave-uploads-bucket",
-                  "SES_EMAIL": "prabathbandara100@gmail.com"
-                }
-              },
-              "Role": {
-                "Fn::GetAtt": [
-                  "IamRoleLambdaExecution",
-                  "Arn"
-                ]
-              }
-            },
-            "DependsOn": [
-              "CreateEventLogGroup"
-            ]
-          },
           "GetEventsLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
@@ -280,16 +249,16 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1778038397603-2026-05-06T03:33:17.603Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/getEvents.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "cloudwave-events-backend-dev-getEvents",
               "MemorySize": 1024,
-              "Timeout": 6,
+              "Timeout": 30,
               "Environment": {
                 "Variables": {
-                  "MONGO_URI": "mongodb+srv://cloudwave-user:Prabath%40426@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
+                  "MONGO_URI": "mongodb+srv://cloudwave-user:CloudWave2024@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
                   "BUCKET_NAME": "cloudwave-uploads-bucket",
                   "SES_EMAIL": "prabathbandara100@gmail.com"
                 }
@@ -305,6 +274,38 @@
               "GetEventsLogGroup"
             ]
           },
+          "CreateEventLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
+              },
+              "Handler": "src/events/createEvent.handler",
+              "Runtime": "nodejs18.x",
+              "FunctionName": "cloudwave-events-backend-dev-createEvent",
+              "MemorySize": 1024,
+              "Timeout": 30,
+              "Environment": {
+                "Variables": {
+                  "MONGO_URI": "mongodb+srv://cloudwave-user:CloudWave2024@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
+                  "BUCKET_NAME": "cloudwave-uploads-bucket",
+                  "SES_EMAIL": "prabathbandara100@gmail.com"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "CreateEventLogGroup"
+            ]
+          },
           "GetEventByIdLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
@@ -312,16 +313,16 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1778038397603-2026-05-06T03:33:17.603Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/getEventById.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "cloudwave-events-backend-dev-getEventById",
               "MemorySize": 1024,
-              "Timeout": 6,
+              "Timeout": 30,
               "Environment": {
                 "Variables": {
-                  "MONGO_URI": "mongodb+srv://cloudwave-user:Prabath%40426@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
+                  "MONGO_URI": "mongodb+srv://cloudwave-user:CloudWave2024@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
                   "BUCKET_NAME": "cloudwave-uploads-bucket",
                   "SES_EMAIL": "prabathbandara100@gmail.com"
                 }
@@ -344,16 +345,16 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1778038397603-2026-05-06T03:33:17.603Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/updateEvent.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "cloudwave-events-backend-dev-updateEvent",
               "MemorySize": 1024,
-              "Timeout": 6,
+              "Timeout": 30,
               "Environment": {
                 "Variables": {
-                  "MONGO_URI": "mongodb+srv://cloudwave-user:Prabath%40426@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
+                  "MONGO_URI": "mongodb+srv://cloudwave-user:CloudWave2024@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
                   "BUCKET_NAME": "cloudwave-uploads-bucket",
                   "SES_EMAIL": "prabathbandara100@gmail.com"
                 }
@@ -376,16 +377,16 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1778038397603-2026-05-06T03:33:17.603Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/deleteEvent.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "cloudwave-events-backend-dev-deleteEvent",
               "MemorySize": 1024,
-              "Timeout": 6,
+              "Timeout": 30,
               "Environment": {
                 "Variables": {
-                  "MONGO_URI": "mongodb+srv://cloudwave-user:Prabath%40426@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
+                  "MONGO_URI": "mongodb+srv://cloudwave-user:CloudWave2024@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
                   "BUCKET_NAME": "cloudwave-uploads-bucket",
                   "SES_EMAIL": "prabathbandara100@gmail.com"
                 }
@@ -408,16 +409,16 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1778038397603-2026-05-06T03:33:17.603Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/registrations/registerEvent.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "cloudwave-events-backend-dev-registerEvent",
               "MemorySize": 1024,
-              "Timeout": 6,
+              "Timeout": 30,
               "Environment": {
                 "Variables": {
-                  "MONGO_URI": "mongodb+srv://cloudwave-user:Prabath%40426@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
+                  "MONGO_URI": "mongodb+srv://cloudwave-user:CloudWave2024@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
                   "BUCKET_NAME": "cloudwave-uploads-bucket",
                   "SES_EMAIL": "prabathbandara100@gmail.com"
                 }
@@ -440,16 +441,16 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1778038397603-2026-05-06T03:33:17.603Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/uploads/getPresignedUrl.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "cloudwave-events-backend-dev-getPresignedUrl",
               "MemorySize": 1024,
-              "Timeout": 6,
+              "Timeout": 30,
               "Environment": {
                 "Variables": {
-                  "MONGO_URI": "mongodb+srv://cloudwave-user:Prabath%40426@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
+                  "MONGO_URI": "mongodb+srv://cloudwave-user:CloudWave2024@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
                   "BUCKET_NAME": "cloudwave-uploads-bucket",
                   "SES_EMAIL": "prabathbandara100@gmail.com"
                 }
@@ -472,16 +473,16 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1778038397603-2026-05-06T03:33:17.603Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/reminders/sendReminders.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "cloudwave-events-backend-dev-sendReminders",
               "MemorySize": 1024,
-              "Timeout": 6,
+              "Timeout": 30,
               "Environment": {
                 "Variables": {
-                  "MONGO_URI": "mongodb+srv://cloudwave-user:Prabath%40426@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
+                  "MONGO_URI": "mongodb+srv://cloudwave-user:CloudWave2024@cloudwave-cluster.zcijbsp.mongodb.net/cloudwave?appName=cloudwave-cluster",
                   "BUCKET_NAME": "cloudwave-uploads-bucket",
                   "SES_EMAIL": "prabathbandara100@gmail.com"
                 }
@@ -497,84 +498,84 @@
               "SendRemindersLogGroup"
             ]
           },
-          "CreateEventLambdaVersionHF7Ww2KTJvRvhQlmi3mYUs8buC2d4vO70COOyJueY": {
-            "Type": "AWS::Lambda::Version",
-            "DeletionPolicy": "Retain",
-            "Properties": {
-              "FunctionName": {
-                "Ref": "CreateEventLambdaFunction"
-              },
-              "CodeSha256": "2bTi70gMdH8xDX1WxW9z5GQRos9yFR2PhPA2ebt2vKM="
-            }
-          },
-          "GetEventsLambdaVersion6NGXkc9dHaXr5uiY5CRTIJtY6SWfhuLQv13WP7czg": {
+          "GetEventsLambdaVersioniWvF8u2qM6bCjLsQ1Jn5k5F2LC3G2bipfnEVZkuFdBI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetEventsLambdaFunction"
               },
-              "CodeSha256": "2bTi70gMdH8xDX1WxW9z5GQRos9yFR2PhPA2ebt2vKM="
+              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
             }
           },
-          "GetEventByIdLambdaVersionAhMFYTQAU9Nq2DQr8yGmFeC6Od4qzEgEXHBuNlBwiE": {
+          "CreateEventLambdaVersionWRv0NnVD9qDyZSJyLhtyDcobchOCjtpGz9vL7j1qF0": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "CreateEventLambdaFunction"
+              },
+              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
+            }
+          },
+          "GetEventByIdLambdaVersionWliopswxBfPXoyEsK81OG49J6JX2CeOBkDO4f4bO8E": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetEventByIdLambdaFunction"
               },
-              "CodeSha256": "2bTi70gMdH8xDX1WxW9z5GQRos9yFR2PhPA2ebt2vKM="
+              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
             }
           },
-          "UpdateEventLambdaVersionsvqQI4vzG7JMWW7EBX8mUVHFvpmVa9rVVqXQ3aDM": {
+          "UpdateEventLambdaVersionrBpioVs1Odg3XvjNDOeysRQXAkeSgqWdlb2Zj2B3O3U": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UpdateEventLambdaFunction"
               },
-              "CodeSha256": "2bTi70gMdH8xDX1WxW9z5GQRos9yFR2PhPA2ebt2vKM="
+              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
             }
           },
-          "DeleteEventLambdaVersionAcqItHLSTWhHOPV73Mrm33jyulzuQY0t82lqBe3wU": {
+          "DeleteEventLambdaVersionFScKI9m6IwF92vXng6qZzDAA5fwXYhsYbCFYtPD0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "DeleteEventLambdaFunction"
               },
-              "CodeSha256": "2bTi70gMdH8xDX1WxW9z5GQRos9yFR2PhPA2ebt2vKM="
+              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
             }
           },
-          "RegisterEventLambdaVersionMAoCoR3QF3cUX6avE1vH8fH28QqICgTEWNzB1QJaA": {
+          "RegisterEventLambdaVersionUFPdWukuEmShMKT4kv1TYixwncqK2RtYbJdZKSZg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RegisterEventLambdaFunction"
               },
-              "CodeSha256": "2bTi70gMdH8xDX1WxW9z5GQRos9yFR2PhPA2ebt2vKM="
+              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
             }
           },
-          "GetPresignedUrlLambdaVersioneEpNVoESARNQSeKbSYDGYVpDli7KlB9hzdwIOEJnZE": {
+          "GetPresignedUrlLambdaVersion24ULSHVu6fyaC0DBrRJtkAYNSMnajFjtwVaK0KTFoVE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetPresignedUrlLambdaFunction"
               },
-              "CodeSha256": "2bTi70gMdH8xDX1WxW9z5GQRos9yFR2PhPA2ebt2vKM="
+              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
             }
           },
-          "SendRemindersLambdaVersionx9rNnYXRFsiRyBROFPK7OhjMHmvL4cMuOKxN3WAo0": {
+          "SendRemindersLambdaVersionTHpFazcitkQ0NLwIWYqm8HwJp4Jtr1yXZD3fKiRxN9w": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SendRemindersLambdaFunction"
               },
-              "CodeSha256": "2bTi70gMdH8xDX1WxW9z5GQRos9yFR2PhPA2ebt2vKM="
+              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
             }
           },
           "SendRemindersEventsRuleSchedule1": {
@@ -723,8 +724,8 @@
                     "StatusCode": "200",
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
-                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,POST'"
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST,GET'"
                     },
                     "ResponseTemplates": {
                       "application/json": ""
@@ -768,7 +769,7 @@
                     "StatusCode": "200",
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
-                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization'",
                       "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE,PUT,GET'"
                     },
                     "ResponseTemplates": {
@@ -813,7 +814,7 @@
                     "StatusCode": "200",
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
-                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization'",
                       "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                     },
                     "ResponseTemplates": {
@@ -858,7 +859,7 @@
                     "StatusCode": "200",
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
-                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization'",
                       "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                     },
                     "ResponseTemplates": {
@@ -874,52 +875,6 @@
                 "Ref": "ApiGatewayRestApi"
               }
             }
-          },
-          "ApiGatewayMethodEventsPost": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "POST",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceEvents"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "CreateEventLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            },
-            "DependsOn": [
-              "CreateEventLambdaPermissionApiGateway"
-            ]
           },
           "ApiGatewayMethodEventsGet": {
             "Type": "AWS::ApiGateway::Method",
@@ -965,6 +920,52 @@
             },
             "DependsOn": [
               "GetEventsLambdaPermissionApiGateway"
+            ]
+          },
+          "ApiGatewayMethodEventsPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceEvents"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "CreateEventLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": [
+              "CreateEventLambdaPermissionApiGateway"
             ]
           },
           "ApiGatewayMethodEventsIdVarGet": {
@@ -1197,7 +1198,7 @@
               "GetPresignedUrlLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1778038354848": {
+          "ApiGatewayDeployment1779514683967": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1210,8 +1211,8 @@
               "ApiGatewayMethodEventsIdVarOptions",
               "ApiGatewayMethodRegistrationsOptions",
               "ApiGatewayMethodUploadsPresignedDashurlOptions",
-              "ApiGatewayMethodEventsPost",
               "ApiGatewayMethodEventsGet",
+              "ApiGatewayMethodEventsPost",
               "ApiGatewayMethodEventsIdVarGet",
               "ApiGatewayMethodEventsIdVarPut",
               "ApiGatewayMethodEventsIdVarDelete",
@@ -1219,12 +1220,12 @@
               "ApiGatewayMethodUploadsPresignedDashurlPost"
             ]
           },
-          "CreateEventLambdaPermissionApiGateway": {
+          "GetEventsLambdaPermissionApiGateway": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
                 "Fn::GetAtt": [
-                  "CreateEventLambdaFunction",
+                  "GetEventsLambdaFunction",
                   "Arn"
                 ]
               },
@@ -1256,12 +1257,12 @@
               }
             }
           },
-          "GetEventsLambdaPermissionApiGateway": {
+          "CreateEventLambdaPermissionApiGateway": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
                 "Fn::GetAtt": [
-                  "GetEventsLambdaFunction",
+                  "CreateEventLambdaFunction",
                   "Arn"
                 ]
               },
@@ -1488,28 +1489,28 @@
               "Name": "sls-cloudwave-events-backend-dev-ServerlessDeploymentBucketName"
             }
           },
-          "CreateEventLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "CreateEventLambdaVersionHF7Ww2KTJvRvhQlmi3mYUs8buC2d4vO70COOyJueY"
-            },
-            "Export": {
-              "Name": "sls-cloudwave-events-backend-dev-CreateEventLambdaFunctionQualifiedArn"
-            }
-          },
           "GetEventsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetEventsLambdaVersion6NGXkc9dHaXr5uiY5CRTIJtY6SWfhuLQv13WP7czg"
+              "Ref": "GetEventsLambdaVersioniWvF8u2qM6bCjLsQ1Jn5k5F2LC3G2bipfnEVZkuFdBI"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-GetEventsLambdaFunctionQualifiedArn"
             }
           },
+          "CreateEventLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "CreateEventLambdaVersionWRv0NnVD9qDyZSJyLhtyDcobchOCjtpGz9vL7j1qF0"
+            },
+            "Export": {
+              "Name": "sls-cloudwave-events-backend-dev-CreateEventLambdaFunctionQualifiedArn"
+            }
+          },
           "GetEventByIdLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetEventByIdLambdaVersionAhMFYTQAU9Nq2DQr8yGmFeC6Od4qzEgEXHBuNlBwiE"
+              "Ref": "GetEventByIdLambdaVersionWliopswxBfPXoyEsK81OG49J6JX2CeOBkDO4f4bO8E"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-GetEventByIdLambdaFunctionQualifiedArn"
@@ -1518,7 +1519,7 @@
           "UpdateEventLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UpdateEventLambdaVersionsvqQI4vzG7JMWW7EBX8mUVHFvpmVa9rVVqXQ3aDM"
+              "Ref": "UpdateEventLambdaVersionrBpioVs1Odg3XvjNDOeysRQXAkeSgqWdlb2Zj2B3O3U"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-UpdateEventLambdaFunctionQualifiedArn"
@@ -1527,7 +1528,7 @@
           "DeleteEventLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "DeleteEventLambdaVersionAcqItHLSTWhHOPV73Mrm33jyulzuQY0t82lqBe3wU"
+              "Ref": "DeleteEventLambdaVersionFScKI9m6IwF92vXng6qZzDAA5fwXYhsYbCFYtPD0"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-DeleteEventLambdaFunctionQualifiedArn"
@@ -1536,7 +1537,7 @@
           "RegisterEventLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RegisterEventLambdaVersionMAoCoR3QF3cUX6avE1vH8fH28QqICgTEWNzB1QJaA"
+              "Ref": "RegisterEventLambdaVersionUFPdWukuEmShMKT4kv1TYixwncqK2RtYbJdZKSZg"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-RegisterEventLambdaFunctionQualifiedArn"
@@ -1545,7 +1546,7 @@
           "GetPresignedUrlLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetPresignedUrlLambdaVersioneEpNVoESARNQSeKbSYDGYVpDli7KlB9hzdwIOEJnZE"
+              "Ref": "GetPresignedUrlLambdaVersion24ULSHVu6fyaC0DBrRJtkAYNSMnajFjtwVaK0KTFoVE"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-GetPresignedUrlLambdaFunctionQualifiedArn"
@@ -1554,7 +1555,7 @@
           "SendRemindersLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SendRemindersLambdaVersionx9rNnYXRFsiRyBROFPK7OhjMHmvL4cMuOKxN3WAo0"
+              "Ref": "SendRemindersLambdaVersionTHpFazcitkQ0NLwIWYqm8HwJp4Jtr1yXZD3fKiRxN9w"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-SendRemindersLambdaFunctionQualifiedArn"
@@ -1672,47 +1673,8 @@
       },
       "vpc": {}
     },
-    "plugins": [
-      "serverless-offline"
-    ],
     "pluginsData": {},
     "functions": {
-      "createEvent": {
-        "handler": "src/events/createEvent.handler",
-        "events": [
-          {
-            "http": {
-              "path": "events",
-              "method": "post",
-              "cors": {
-                "origin": "*",
-                "methods": [
-                  "OPTIONS",
-                  "POST"
-                ],
-                "headers": [
-                  "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
-                ],
-                "allowCredentials": false
-              },
-              "integration": "AWS_PROXY"
-            }
-          }
-        ],
-        "name": "cloudwave-events-backend-dev-createEvent",
-        "package": {},
-        "memory": 1024,
-        "timeout": 6,
-        "runtime": "nodejs18.x",
-        "vpc": {},
-        "versionLogicalId": "CreateEventLambdaVersionHF7Ww2KTJvRvhQlmi3mYUs8buC2d4vO70COOyJueY"
-      },
       "getEvents": {
         "handler": "src/events/getEvents.handler",
         "events": [
@@ -1728,12 +1690,7 @@
                 ],
                 "headers": [
                   "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
+                  "Authorization"
                 ],
                 "allowCredentials": false
               },
@@ -1744,10 +1701,41 @@
         "name": "cloudwave-events-backend-dev-getEvents",
         "package": {},
         "memory": 1024,
-        "timeout": 6,
+        "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "GetEventsLambdaVersion6NGXkc9dHaXr5uiY5CRTIJtY6SWfhuLQv13WP7czg"
+        "versionLogicalId": "GetEventsLambdaVersioniWvF8u2qM6bCjLsQ1Jn5k5F2LC3G2bipfnEVZkuFdBI"
+      },
+      "createEvent": {
+        "handler": "src/events/createEvent.handler",
+        "events": [
+          {
+            "http": {
+              "path": "events",
+              "method": "post",
+              "cors": {
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "POST"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "Authorization"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "cloudwave-events-backend-dev-createEvent",
+        "package": {},
+        "memory": 1024,
+        "timeout": 30,
+        "runtime": "nodejs18.x",
+        "vpc": {},
+        "versionLogicalId": "CreateEventLambdaVersionWRv0NnVD9qDyZSJyLhtyDcobchOCjtpGz9vL7j1qF0"
       },
       "getEventById": {
         "handler": "src/events/getEventById.handler",
@@ -1764,12 +1752,7 @@
                 ],
                 "headers": [
                   "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
+                  "Authorization"
                 ],
                 "allowCredentials": false
               },
@@ -1780,10 +1763,10 @@
         "name": "cloudwave-events-backend-dev-getEventById",
         "package": {},
         "memory": 1024,
-        "timeout": 6,
+        "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "GetEventByIdLambdaVersionAhMFYTQAU9Nq2DQr8yGmFeC6Od4qzEgEXHBuNlBwiE"
+        "versionLogicalId": "GetEventByIdLambdaVersionWliopswxBfPXoyEsK81OG49J6JX2CeOBkDO4f4bO8E"
       },
       "updateEvent": {
         "handler": "src/events/updateEvent.handler",
@@ -1800,12 +1783,7 @@
                 ],
                 "headers": [
                   "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
+                  "Authorization"
                 ],
                 "allowCredentials": false
               },
@@ -1816,10 +1794,10 @@
         "name": "cloudwave-events-backend-dev-updateEvent",
         "package": {},
         "memory": 1024,
-        "timeout": 6,
+        "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "UpdateEventLambdaVersionsvqQI4vzG7JMWW7EBX8mUVHFvpmVa9rVVqXQ3aDM"
+        "versionLogicalId": "UpdateEventLambdaVersionrBpioVs1Odg3XvjNDOeysRQXAkeSgqWdlb2Zj2B3O3U"
       },
       "deleteEvent": {
         "handler": "src/events/deleteEvent.handler",
@@ -1836,12 +1814,7 @@
                 ],
                 "headers": [
                   "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
+                  "Authorization"
                 ],
                 "allowCredentials": false
               },
@@ -1852,10 +1825,10 @@
         "name": "cloudwave-events-backend-dev-deleteEvent",
         "package": {},
         "memory": 1024,
-        "timeout": 6,
+        "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "DeleteEventLambdaVersionAcqItHLSTWhHOPV73Mrm33jyulzuQY0t82lqBe3wU"
+        "versionLogicalId": "DeleteEventLambdaVersionFScKI9m6IwF92vXng6qZzDAA5fwXYhsYbCFYtPD0"
       },
       "registerEvent": {
         "handler": "src/registrations/registerEvent.handler",
@@ -1872,12 +1845,7 @@
                 ],
                 "headers": [
                   "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
+                  "Authorization"
                 ],
                 "allowCredentials": false
               },
@@ -1888,10 +1856,10 @@
         "name": "cloudwave-events-backend-dev-registerEvent",
         "package": {},
         "memory": 1024,
-        "timeout": 6,
+        "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "RegisterEventLambdaVersionMAoCoR3QF3cUX6avE1vH8fH28QqICgTEWNzB1QJaA"
+        "versionLogicalId": "RegisterEventLambdaVersionUFPdWukuEmShMKT4kv1TYixwncqK2RtYbJdZKSZg"
       },
       "getPresignedUrl": {
         "handler": "src/uploads/getPresignedUrl.handler",
@@ -1908,12 +1876,7 @@
                 ],
                 "headers": [
                   "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
+                  "Authorization"
                 ],
                 "allowCredentials": false
               },
@@ -1924,10 +1887,10 @@
         "name": "cloudwave-events-backend-dev-getPresignedUrl",
         "package": {},
         "memory": 1024,
-        "timeout": 6,
+        "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "GetPresignedUrlLambdaVersioneEpNVoESARNQSeKbSYDGYVpDli7KlB9hzdwIOEJnZE"
+        "versionLogicalId": "GetPresignedUrlLambdaVersion24ULSHVu6fyaC0DBrRJtkAYNSMnajFjtwVaK0KTFoVE"
       },
       "sendReminders": {
         "handler": "src/reminders/sendReminders.handler",
@@ -1939,10 +1902,10 @@
         "name": "cloudwave-events-backend-dev-sendReminders",
         "package": {},
         "memory": 1024,
-        "timeout": 6,
+        "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "SendRemindersLambdaVersionx9rNnYXRFsiRyBROFPK7OhjMHmvL4cMuOKxN3WAo0"
+        "versionLogicalId": "SendRemindersLambdaVersionTHpFazcitkQ0NLwIWYqm8HwJp4Jtr1yXZD3fKiRxN9w"
       }
     },
     "configValidationMode": "warn",
@@ -1954,9 +1917,6 @@
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
-      },
-      "plugins": {
-        "$ref": "$[\"service\"][\"plugins\"]"
       }
     },
     "layers": {},
@@ -1964,7 +1924,7 @@
     "artifact": "E:\\cloudwave-events\\backend\\.serverless\\cloudwave-events-backend.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/cloudwave-events-backend/dev/1778038397603-2026-05-06T03:33:17.603Z",
+    "artifactDirectoryName": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z",
     "artifact": "cloudwave-events-backend.zip"
   }
 }
