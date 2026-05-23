@@ -249,7 +249,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779541886703-2026-05-23T13:11:26.703Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/getEvents.handler",
               "Runtime": "nodejs18.x",
@@ -281,7 +281,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779541886703-2026-05-23T13:11:26.703Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/createEvent.handler",
               "Runtime": "nodejs18.x",
@@ -313,7 +313,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779541886703-2026-05-23T13:11:26.703Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/getEventById.handler",
               "Runtime": "nodejs18.x",
@@ -345,7 +345,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779541886703-2026-05-23T13:11:26.703Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/updateEvent.handler",
               "Runtime": "nodejs18.x",
@@ -377,7 +377,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779541886703-2026-05-23T13:11:26.703Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/deleteEvent.handler",
               "Runtime": "nodejs18.x",
@@ -409,7 +409,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779541886703-2026-05-23T13:11:26.703Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/registrations/registerEvent.handler",
               "Runtime": "nodejs18.x",
@@ -441,7 +441,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779541886703-2026-05-23T13:11:26.703Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/uploads/getPresignedUrl.handler",
               "Runtime": "nodejs18.x",
@@ -473,7 +473,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779541886703-2026-05-23T13:11:26.703Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/reminders/sendReminders.handler",
               "Runtime": "nodejs18.x",
@@ -498,84 +498,84 @@
               "SendRemindersLogGroup"
             ]
           },
-          "GetEventsLambdaVersioniWvF8u2qM6bCjLsQ1Jn5k5F2LC3G2bipfnEVZkuFdBI": {
+          "GetEventsLambdaVersionyED3lT2YNkuqIlOvgJiY0WjLRVyQhps4HbApYcmKlw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetEventsLambdaFunction"
               },
-              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
+              "CodeSha256": "t/IVd1t5sFREQf54mvUOUW8Q1lwpQTgugaa21CAyiG0="
             }
           },
-          "CreateEventLambdaVersionWRv0NnVD9qDyZSJyLhtyDcobchOCjtpGz9vL7j1qF0": {
+          "CreateEventLambdaVersiongQg7pmmObzxvAI0j8qupDz7FVBvCP6mFlJLHXyNxxhM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateEventLambdaFunction"
               },
-              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
+              "CodeSha256": "t/IVd1t5sFREQf54mvUOUW8Q1lwpQTgugaa21CAyiG0="
             }
           },
-          "GetEventByIdLambdaVersionWliopswxBfPXoyEsK81OG49J6JX2CeOBkDO4f4bO8E": {
+          "GetEventByIdLambdaVersion2Id8mptmdgv4aGHBU4zTogbseYiqpqY3CtTwVyVMg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetEventByIdLambdaFunction"
               },
-              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
+              "CodeSha256": "t/IVd1t5sFREQf54mvUOUW8Q1lwpQTgugaa21CAyiG0="
             }
           },
-          "UpdateEventLambdaVersionrBpioVs1Odg3XvjNDOeysRQXAkeSgqWdlb2Zj2B3O3U": {
+          "UpdateEventLambdaVersionxh2uShouUdxpPyeI0NRfRCyuwdOaXsWMIeH8JhEcIKI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UpdateEventLambdaFunction"
               },
-              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
+              "CodeSha256": "t/IVd1t5sFREQf54mvUOUW8Q1lwpQTgugaa21CAyiG0="
             }
           },
-          "DeleteEventLambdaVersionFScKI9m6IwF92vXng6qZzDAA5fwXYhsYbCFYtPD0": {
+          "DeleteEventLambdaVersion74aDgZBBA75JbZ0a8PSQOHpLcJuP2A4RsAqXc1DDHus": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "DeleteEventLambdaFunction"
               },
-              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
+              "CodeSha256": "t/IVd1t5sFREQf54mvUOUW8Q1lwpQTgugaa21CAyiG0="
             }
           },
-          "RegisterEventLambdaVersionUFPdWukuEmShMKT4kv1TYixwncqK2RtYbJdZKSZg": {
+          "RegisterEventLambdaVersionrTwxnsCdmCfBBohekxr6QoHU8uqXPwfOTbo5taOFU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RegisterEventLambdaFunction"
               },
-              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
+              "CodeSha256": "t/IVd1t5sFREQf54mvUOUW8Q1lwpQTgugaa21CAyiG0="
             }
           },
-          "GetPresignedUrlLambdaVersion24ULSHVu6fyaC0DBrRJtkAYNSMnajFjtwVaK0KTFoVE": {
+          "GetPresignedUrlLambdaVersion9wPB87ArIwNuIWKM79X5dnbLYfO04osotpbGu8HqbtY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetPresignedUrlLambdaFunction"
               },
-              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
+              "CodeSha256": "t/IVd1t5sFREQf54mvUOUW8Q1lwpQTgugaa21CAyiG0="
             }
           },
-          "SendRemindersLambdaVersionTHpFazcitkQ0NLwIWYqm8HwJp4Jtr1yXZD3fKiRxN9w": {
+          "SendRemindersLambdaVersionwAHRdsbAIMMQ1IL5oXQ2p7TVJ80q2chWWvH1zpo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SendRemindersLambdaFunction"
               },
-              "CodeSha256": "w8zx2QDOT37/e2PG42H2Gfrx2XaZyCCvhCY+lVkutVY="
+              "CodeSha256": "t/IVd1t5sFREQf54mvUOUW8Q1lwpQTgugaa21CAyiG0="
             }
           },
           "SendRemindersEventsRuleSchedule1": {
@@ -1198,7 +1198,7 @@
               "GetPresignedUrlLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1779514683967": {
+          "ApiGatewayDeployment1779541877789": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1492,7 +1492,7 @@
           "GetEventsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetEventsLambdaVersioniWvF8u2qM6bCjLsQ1Jn5k5F2LC3G2bipfnEVZkuFdBI"
+              "Ref": "GetEventsLambdaVersionyED3lT2YNkuqIlOvgJiY0WjLRVyQhps4HbApYcmKlw"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-GetEventsLambdaFunctionQualifiedArn"
@@ -1501,7 +1501,7 @@
           "CreateEventLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateEventLambdaVersionWRv0NnVD9qDyZSJyLhtyDcobchOCjtpGz9vL7j1qF0"
+              "Ref": "CreateEventLambdaVersiongQg7pmmObzxvAI0j8qupDz7FVBvCP6mFlJLHXyNxxhM"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-CreateEventLambdaFunctionQualifiedArn"
@@ -1510,7 +1510,7 @@
           "GetEventByIdLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetEventByIdLambdaVersionWliopswxBfPXoyEsK81OG49J6JX2CeOBkDO4f4bO8E"
+              "Ref": "GetEventByIdLambdaVersion2Id8mptmdgv4aGHBU4zTogbseYiqpqY3CtTwVyVMg"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-GetEventByIdLambdaFunctionQualifiedArn"
@@ -1519,7 +1519,7 @@
           "UpdateEventLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UpdateEventLambdaVersionrBpioVs1Odg3XvjNDOeysRQXAkeSgqWdlb2Zj2B3O3U"
+              "Ref": "UpdateEventLambdaVersionxh2uShouUdxpPyeI0NRfRCyuwdOaXsWMIeH8JhEcIKI"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-UpdateEventLambdaFunctionQualifiedArn"
@@ -1528,7 +1528,7 @@
           "DeleteEventLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "DeleteEventLambdaVersionFScKI9m6IwF92vXng6qZzDAA5fwXYhsYbCFYtPD0"
+              "Ref": "DeleteEventLambdaVersion74aDgZBBA75JbZ0a8PSQOHpLcJuP2A4RsAqXc1DDHus"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-DeleteEventLambdaFunctionQualifiedArn"
@@ -1537,7 +1537,7 @@
           "RegisterEventLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RegisterEventLambdaVersionUFPdWukuEmShMKT4kv1TYixwncqK2RtYbJdZKSZg"
+              "Ref": "RegisterEventLambdaVersionrTwxnsCdmCfBBohekxr6QoHU8uqXPwfOTbo5taOFU"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-RegisterEventLambdaFunctionQualifiedArn"
@@ -1546,7 +1546,7 @@
           "GetPresignedUrlLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetPresignedUrlLambdaVersion24ULSHVu6fyaC0DBrRJtkAYNSMnajFjtwVaK0KTFoVE"
+              "Ref": "GetPresignedUrlLambdaVersion9wPB87ArIwNuIWKM79X5dnbLYfO04osotpbGu8HqbtY"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-GetPresignedUrlLambdaFunctionQualifiedArn"
@@ -1555,7 +1555,7 @@
           "SendRemindersLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SendRemindersLambdaVersionTHpFazcitkQ0NLwIWYqm8HwJp4Jtr1yXZD3fKiRxN9w"
+              "Ref": "SendRemindersLambdaVersionwAHRdsbAIMMQ1IL5oXQ2p7TVJ80q2chWWvH1zpo"
             },
             "Export": {
               "Name": "sls-cloudwave-events-backend-dev-SendRemindersLambdaFunctionQualifiedArn"
@@ -1704,7 +1704,7 @@
         "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "GetEventsLambdaVersioniWvF8u2qM6bCjLsQ1Jn5k5F2LC3G2bipfnEVZkuFdBI"
+        "versionLogicalId": "GetEventsLambdaVersionyED3lT2YNkuqIlOvgJiY0WjLRVyQhps4HbApYcmKlw"
       },
       "createEvent": {
         "handler": "src/events/createEvent.handler",
@@ -1735,7 +1735,7 @@
         "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "CreateEventLambdaVersionWRv0NnVD9qDyZSJyLhtyDcobchOCjtpGz9vL7j1qF0"
+        "versionLogicalId": "CreateEventLambdaVersiongQg7pmmObzxvAI0j8qupDz7FVBvCP6mFlJLHXyNxxhM"
       },
       "getEventById": {
         "handler": "src/events/getEventById.handler",
@@ -1766,7 +1766,7 @@
         "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "GetEventByIdLambdaVersionWliopswxBfPXoyEsK81OG49J6JX2CeOBkDO4f4bO8E"
+        "versionLogicalId": "GetEventByIdLambdaVersion2Id8mptmdgv4aGHBU4zTogbseYiqpqY3CtTwVyVMg"
       },
       "updateEvent": {
         "handler": "src/events/updateEvent.handler",
@@ -1797,7 +1797,7 @@
         "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "UpdateEventLambdaVersionrBpioVs1Odg3XvjNDOeysRQXAkeSgqWdlb2Zj2B3O3U"
+        "versionLogicalId": "UpdateEventLambdaVersionxh2uShouUdxpPyeI0NRfRCyuwdOaXsWMIeH8JhEcIKI"
       },
       "deleteEvent": {
         "handler": "src/events/deleteEvent.handler",
@@ -1828,7 +1828,7 @@
         "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "DeleteEventLambdaVersionFScKI9m6IwF92vXng6qZzDAA5fwXYhsYbCFYtPD0"
+        "versionLogicalId": "DeleteEventLambdaVersion74aDgZBBA75JbZ0a8PSQOHpLcJuP2A4RsAqXc1DDHus"
       },
       "registerEvent": {
         "handler": "src/registrations/registerEvent.handler",
@@ -1859,7 +1859,7 @@
         "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "RegisterEventLambdaVersionUFPdWukuEmShMKT4kv1TYixwncqK2RtYbJdZKSZg"
+        "versionLogicalId": "RegisterEventLambdaVersionrTwxnsCdmCfBBohekxr6QoHU8uqXPwfOTbo5taOFU"
       },
       "getPresignedUrl": {
         "handler": "src/uploads/getPresignedUrl.handler",
@@ -1890,7 +1890,7 @@
         "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "GetPresignedUrlLambdaVersion24ULSHVu6fyaC0DBrRJtkAYNSMnajFjtwVaK0KTFoVE"
+        "versionLogicalId": "GetPresignedUrlLambdaVersion9wPB87ArIwNuIWKM79X5dnbLYfO04osotpbGu8HqbtY"
       },
       "sendReminders": {
         "handler": "src/reminders/sendReminders.handler",
@@ -1905,7 +1905,7 @@
         "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "SendRemindersLambdaVersionTHpFazcitkQ0NLwIWYqm8HwJp4Jtr1yXZD3fKiRxN9w"
+        "versionLogicalId": "SendRemindersLambdaVersionwAHRdsbAIMMQ1IL5oXQ2p7TVJ80q2chWWvH1zpo"
       }
     },
     "configValidationMode": "warn",
@@ -1924,7 +1924,7 @@
     "artifact": "E:\\cloudwave-events\\backend\\.serverless\\cloudwave-events-backend.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/cloudwave-events-backend/dev/1779514695893-2026-05-23T05:38:15.893Z",
+    "artifactDirectoryName": "serverless/cloudwave-events-backend/dev/1779541886703-2026-05-23T13:11:26.703Z",
     "artifact": "cloudwave-events-backend.zip"
   }
 }
