@@ -249,7 +249,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779547758034-2026-05-23T14:49:18.034Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779550238942-2026-05-23T15:30:38.942Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/getEvents.handler",
               "Runtime": "nodejs18.x",
@@ -281,7 +281,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779547758034-2026-05-23T14:49:18.034Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779550238942-2026-05-23T15:30:38.942Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/createEvent.handler",
               "Runtime": "nodejs18.x",
@@ -313,7 +313,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779547758034-2026-05-23T14:49:18.034Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779550238942-2026-05-23T15:30:38.942Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/getEventById.handler",
               "Runtime": "nodejs18.x",
@@ -345,7 +345,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779547758034-2026-05-23T14:49:18.034Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779550238942-2026-05-23T15:30:38.942Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/updateEvent.handler",
               "Runtime": "nodejs18.x",
@@ -377,7 +377,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779547758034-2026-05-23T14:49:18.034Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779550238942-2026-05-23T15:30:38.942Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/events/deleteEvent.handler",
               "Runtime": "nodejs18.x",
@@ -409,7 +409,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779547758034-2026-05-23T14:49:18.034Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779550238942-2026-05-23T15:30:38.942Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/registrations/registerEvent.handler",
               "Runtime": "nodejs18.x",
@@ -441,7 +441,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779547758034-2026-05-23T14:49:18.034Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779550238942-2026-05-23T15:30:38.942Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/uploads/getPresignedUrl.handler",
               "Runtime": "nodejs18.x",
@@ -473,7 +473,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cloudwave-events-backend/dev/1779547758034-2026-05-23T14:49:18.034Z/cloudwave-events-backend.zip"
+                "S3Key": "serverless/cloudwave-events-backend/dev/1779550238942-2026-05-23T15:30:38.942Z/cloudwave-events-backend.zip"
               },
               "Handler": "src/reminders/sendReminders.handler",
               "Runtime": "nodejs18.x",
@@ -1198,7 +1198,7 @@
               "GetPresignedUrlLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1779547746150": {
+          "ApiGatewayDeployment1779550227567": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1924,7 +1924,7 @@
     "artifact": "E:\\cloudwave-events\\backend\\.serverless\\cloudwave-events-backend.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/cloudwave-events-backend/dev/1779547758034-2026-05-23T14:49:18.034Z",
+    "artifactDirectoryName": "serverless/cloudwave-events-backend/dev/1779550238942-2026-05-23T15:30:38.942Z",
     "artifact": "cloudwave-events-backend.zip"
   }
 }
