@@ -37,7 +37,9 @@ functions:
             allowCredentials: false
 
   createEvent:
-    handler: src/events/createEvent.handler
+  handler: src/utils/createEventHandler.handler 
+ 
+ 
     events:
       - http:
           path: events
@@ -62,8 +64,9 @@ functions:
               - Authorization
             allowCredentials: false
 
-  updateEvent:
-    handler: src/events/updateEvent.handler
+  
+    updateEvent:
+  handler: src/utils/updateEventHandler.handler
     events:
       - http:
           path: events/{id}
@@ -75,8 +78,10 @@ functions:
               - Authorization
             allowCredentials: false
 
-  deleteEvent:
-    handler: src/events/deleteEvent.handler
+  
+   
+    deleteEvent:
+  handler: src/utils/deleteEventHandler.handler
     events:
       - http:
           path: events/{id}
