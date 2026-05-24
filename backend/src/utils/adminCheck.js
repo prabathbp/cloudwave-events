@@ -1,11 +1,6 @@
 /**
  * adminCheck.js
  * CloudWave Events Platform — Shared Admin Authorization Helper
- *
- * Usage in any Lambda handler:
- *   const { requireAdmin, corsHeaders } = require('../utils/adminCheck');
- *   const authError = requireAdmin(event);
- *   if (authError) return authError;
  */
 
 const corsHeaders = {
@@ -14,37 +9,97 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
 };
 
-/**
- * Reads Cognito groups injected by API Gateway JWT Authorizer
- * and returns a 403 response if the caller is not in "admin" group.
- *
- * API Gateway (Cognito Authorizer) injects claims into:
- *   event.requestContext.authorizer.jwt.claims   (HTTP API v2)
- *   event.requestContext.authorizer.claims        (REST API v1)
- *
- * @param {object} event - Lambda event object
- * @returns {object|null} - 403 response object, or null if user IS admin
- */
-function requireAdmin(event) {
-  let groups = [];
-
+function decodeJwtPayload(token) {
   try {
-    // Support both REST API (v1) and HTTP API (v2) authorizer claim formats
-    const ctx = event.requestContext?.authorizer;
+    const parts = token.split('.');
+    if (parts.length !== 3) return null;
+    const base64 = parts[1].replace(/-/g, '+').replace(/_/g, '/');
+    const payload = Buffer.from(base64, 'base64').toString('utf8');
+    const claims = JSON.parse(payload);
+    const now = Math.floor(Date.now() / 1000);
+    if (claims.exp && claims.exp < now) return null;
+    return claims;
+  } catch {
+    return null;
+  }
+}
 
-    if (ctx?.jwt?.claims) {
-      // HTTP API v2 with JWT Authorizer
-      const raw = ctx.jwt.claims['cognito:groups'];
-      groups = parseGroups(raw);
-    } else if (ctx?.claims) {
-      // REST API v1 with Cognito User Pool Authorizer
-      const raw = ctx.claims['cognito:groups'];
-      groups = parseGroups(raw);
-    }
-  } catch (err) {
-    console.error('[adminCheck] Failed to parse authorizer claims:', err);
+function getBearerToken(event) {
+  const headers = event.headers || {};
+  const authHeader =
+    headers.Authorization ||
+    headers.authorization ||
+    headers.AUTHORIZATION;
+  if (!authHeader || typeof authHeader !== 'string') return null;
+  const match = authHeader.match(/^Bearer\s+(.+)$/i);
+  return match ? match[1].trim() : null;
+}
+
+/**
+ * Cognito returns groups as a JSON-encoded string array or plain string.
+ */
+function parseGroups(raw) {
+  if (!raw) return [];
+  if (Array.isArray(raw)) return raw;
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [parsed];
+  } catch {
+    return String(raw)
+      .split(',')
+      .map((g) => g.trim())
+      .filter(Boolean);
+  }
+}
+
+function getGroupsFromAuthorizer(event) {
+  const ctx = event.requestContext?.authorizer;
+  if (!ctx) return [];
+
+  if (ctx.jwt?.claims) {
+    return parseGroups(ctx.jwt.claims['cognito:groups']);
   }
 
+  if (ctx.claims) {
+    return parseGroups(ctx.claims['cognito:groups']);
+  }
+
+  return [];
+}
+
+function getGroupsFromBearerToken(event) {
+  const token = getBearerToken(event);
+  if (!token) return [];
+  const claims = decodeJwtPayload(token);
+  if (!claims) return [];
+  return parseGroups(claims['cognito:groups']);
+}
+
+function getAdminGroups(event) {
+  const fromAuthorizer = getGroupsFromAuthorizer(event);
+  if (fromAuthorizer.length > 0) return fromAuthorizer;
+  return getGroupsFromBearerToken(event);
+}
+
+function extractSub(event) {
+  try {
+    const ctx = event.requestContext?.authorizer;
+    if (ctx?.jwt?.claims?.sub) return ctx.jwt.claims.sub;
+    if (ctx?.claims?.sub) return ctx.claims.sub;
+
+    const token = getBearerToken(event);
+    if (token) {
+      const claims = decodeJwtPayload(token);
+      if (claims?.sub) return claims.sub;
+    }
+  } catch {
+    // ignore
+  }
+  return 'unknown';
+}
+
+function requireAdmin(event) {
+  const groups = getAdminGroups(event);
   const sub = extractSub(event);
   console.log(`[adminCheck] User ${sub} — groups: ${JSON.stringify(groups)}`);
 
@@ -59,37 +114,7 @@ function requireAdmin(event) {
     };
   }
 
-  return null; // User is admin — allow request to proceed
-}
-
-/**
- * Cognito returns groups as a JSON-encoded string array or plain string.
- * Handles both: ["admin","users"] and admin,users
- */
-function parseGroups(raw) {
-  if (!raw) return [];
-  if (Array.isArray(raw)) return raw;
-  try {
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [parsed];
-  } catch {
-    // Fallback: comma-separated string
-    return raw.split(',').map((g) => g.trim());
-  }
-}
-
-/** Extract sub (user ID) for CloudWatch logging */
-function extractSub(event) {
-  try {
-    const ctx = event.requestContext?.authorizer;
-    return (
-      ctx?.jwt?.claims?.sub ||
-      ctx?.claims?.sub ||
-      'unknown'
-    );
-  } catch {
-    return 'unknown';
-  }
+  return null;
 }
 
 module.exports = { requireAdmin, corsHeaders };

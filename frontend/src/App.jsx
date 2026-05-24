@@ -1,25 +1,12 @@
-/**
- * App.jsx — Updated with /events/edit/:id route
- * CloudWave Events Platform
- *
- * Add the EditEvent import and route to your existing App.jsx.
- * Only the additions are shown below with clear markers.
- */
-
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-
-// ── Existing pages (keep all your current imports) ────────────────────────────
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useParams } from 'react-router-dom';
 import Login from './pages/Login';
-import EventList from './pages/EventList'
-//import Events from './pages/Events';//
+import RegisterPage from './pages/RegisterPage';
+import EventListPage from './pages/EventListPage';
 import EventDetail from './pages/EventDetail';
-import CreateEvent from './pages/CreateEvent';
-
-// ── NEW import ────────────────────────────────────────────────────────────────
+import CreateEventPage from './pages/CreateEventPage';
 import EditEvent from './pages/EditEvent';
-
-// ── Auth guard (adjust to match your existing implementation) ─────────────────
+import AppNavbar from './components/AppNavbar';
 import { isAuthenticated, isAdmin } from './utils/auth';
 
 function PrivateRoute({ children }) {
@@ -32,38 +19,60 @@ function AdminRoute({ children }) {
   return children;
 }
 
-export default function App() {
-  return (
-    <Router>
-      <Routes>
-        {/* Public */}
-        <Route path="/login" element={<Login />} />
+function RedirectEdit() {
+  const { id } = useParams();
+  return <Navigate to={`/events/${id}/edit`} replace />;
+}
 
-        {/* Protected — any logged-in user */}
+function HomeRedirect() {
+  return <Navigate to={isAuthenticated() ? '/events' : '/login'} replace />;
+}
+
+function AppRoutes() {
+  const location = useLocation();
+  const hideNav =
+    location.pathname === '/login' || location.pathname === '/register';
+
+  return (
+    <>
+      {!hideNav && <AppNavbar />}
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegisterPage />} />
+
         <Route
-          path="/events"
-          element={<PrivateRoute>Prabath</PrivateRoute>}
+          path="/events/create"
+          element={<AdminRoute><CreateEventPage /></AdminRoute>}
+        />
+        <Route
+          path="/events/:id/edit"
+          element={<AdminRoute><EditEvent /></AdminRoute>}
         />
         <Route
           path="/events/:id"
           element={<PrivateRoute><EventDetail /></PrivateRoute>}
         />
-
-        {/* Admin only */}
         <Route
-          path="/events/create"
-          element={<AdminRoute><CreateEvent /></AdminRoute>}
+          path="/events"
+          element={<PrivateRoute><EventListPage /></PrivateRoute>}
         />
-        {/* ── NEW admin route ───────────────────────────────────────────────── */}
+
+        <Route path="/create" element={<Navigate to="/events/create" replace />} />
         <Route
           path="/events/edit/:id"
-          element={<AdminRoute><EditEvent /></AdminRoute>}
+          element={<RedirectEdit />}
         />
-
-        {/* Redirect root */}
-        <Route path="/" element={<Navigate to="/events" replace />} />
-        <Route path="*" element={<Navigate to="/events" replace />} />
+        <Route path="/" element={<HomeRedirect />} />
+        <Route path="*" element={<HomeRedirect />} />
       </Routes>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <Router>
+      <AppRoutes />
     </Router>
   );
 }

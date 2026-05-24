@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getIdToken, isAdmin } from '../utils/auth';
-import { getEventById, updateEvent, getPresignedUrl } from '../utils/api';
+import { getEventById, updateEvent, getPresignedUrl } from '../utils/apiClient';
 
 function toDatetimeLocal(dateStr) {
   if (!dateStr) return '';
